@@ -1,0 +1,1 @@
+A simple listing of definitions and theorems for private study.
