@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #fff;
+    background-color: #282a36;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+a {
+    color: #59acf3;
+}
+a:hover {
+    color: #a7d8ff;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+	color: #ff4a14;
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #bf370f;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #282a36;
+    color: #ff4a14;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+table.eq_table {
+	border-collapse: collapse;
+ 	border: 0;
+	width: 100%;
+}
+table.eq_table td, table.eq_table th {
+	border: 0;
+}
+table.eq_table tfoot td {
+ 	border: 0;
+}
+table.eq_table tfoot .links {
+ 	text-align: right;
+ 	border: 0;
+}
+
+td.counter {
+	text-align: right;
+	border: 0;
+}
+
+td.eq_code {
+	width: 100%;
+	border: 0;
+	text-align: center;
+}
+
+.eq_table > tr, td, th, {
+	border: 0;
+}
+
+figure {
+	width: 100%;
+	text-align: center;
+}
+
+figure figcaption {
+	text-align: center;
+	font-size: 11pt;
+}
+
+figure img {
+	max-width: 100%;
+}
+
+code {
+    font-family: monospace;
+}
+
+img {
+	max-width: 100%;
+}
+
+.authors
+{
+	text-align: center;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.authors:empty
+{
+	display: none;
+}
+
+
+.affiliation
+{
+	text-align: center;
+}
+
+.affiliation:empty
+{
+	display: none;
+}
+
+.title
+{
+	text-align: center;
+	margin-bottom: 5pt;
+}
+
+.title:empty
+{
+	display: none;
+}
+
+.header{
+  margin-bottom: 20pt;
+}
+
+.header:empty {
+   display: none;
+}
+
+.slide {
+  display: flex;
+  width: 221mm;
+  height: 166mm;
+  margin: 0 auto 20px auto;
+  padding: 0;
+  align-items: center;
+  border: 1px solid #000;
+}
+
+.slide_169 {
+  width: 294mm;
+  height: 166mm;
+}
+
+
+.slide_body {
+  display: block;
+  width: 191mm;
+  height: 136mm;
+  margin: auto;
+  overflow: hidden;
+}
+
+
+.slide_169 > .slide_body {
+  width: 264mm;
+}
+
+.slide figure {
+  width: auto;
+}
+
+.slide figcaption {
+  font-size: 14pt;
+}
+
+
+.slide_body .charter {
+ font-size: 12pt;
+ max-width: 180mm;
+}
+
+.header > .slide_body {
+    height: auto;
+}
+
+.figure > .charter {
+  margin: auto;
+}
+
+.slide_body:empty {
+  display: none;
+}
+
+.slide:empty{
+  display: none;
+}
+
+
+@media print {
+  body  {
+    margin: 0;
+    padding: 0;
+  }
+
+  .slide {
+    page-break-after: always;
+    margin: 0;
+    padding: 0;
+    width: 221mm;
+    min-height: 165.5mm;
+    height: 165.5mm;
+    max-height: 165.5mm;
+    border: none;
+    overflow: hidden;
+    border: 0;
+  }
+
+  .slide_169 {
+    width: 294mm;
+  }
+}
+
+*:not(span){
+  unicode-bidi: plaintext;
+}
+
+</style>
+</head>
+<body>
+<div class="document">
+<div class="header"></div><div class="inner">
+<h2 id="toc_1">Topological Spaces and Continuous Functions</h2>
+
+<h3 id="toc_1.1">Topological Space</h3>
+
+<p>A <strong>topology</strong> on a set \(X\) is a collection \(\mathcal{T}\) of subsets of \(X\) having the following properties:</p>
+
+<p>(1) \(\varnothing\) and \(X\) are in \(\mathcal{T}\).</p>
+
+<p>(2) The union of the elements of any subcollection of \(\mathcal{T}\) is in 
+\(\mathcal{T}\).</p>
+
+<p>(3) The intersection of the elements of any finite subcollection of 
+\(\mathcal{T}\) is in \(\mathcal{T}\).</p>
+
+<h5 id="toc_1.1.0.4">Definition</h5>
+
+<p>Suppose \(\mathcal{T}\) and \(\mathcal{T&#39;}\) are two topologies on a given set \(X\). If \(\mathcal{T&#39;}\supset\mathcal{T}\), we say that \(\mathcal{T&#39;}\) is finer than \(\mathcal{T}\); if \(\mathcal{T&#39;}\) <em>properly</em> contains \(\mathcal{T}\), we say that \(\mathcal{T&#39;}\) is <em>strictly finer</em> than \(\mathcal{T}\). We also say that \(\mathcal{T}\) is <em>coarser</em> than \(\mathcal{T&#39;}\), or <em>strictly coarser</em>, in these two respective situations. We say that \(\mathcal{T}\) is comparable with \(\mathcal{T&#39;}\) if either \(\mathcal{T&#39;}\supset\mathcal{T}\) or \(\mathcal{T}\supset\mathcal{T&#39;}\).</p>
+
+<h3 id="toc_1.2">Basis for a Topology</h3>
+
+<p>If \(X\) is a set, a <strong>basis</strong> for a topology on \(X\) is a collection \(\mathcal{B}\) of subsets of \(X\) (called <strong>basis elements</strong>) such that </p>
+
+<p>(1) For each \(x \in X\), there is at least one basis element \(B\) containing \(x\).</p>
+
+<p>(2) If \(X\) belongs to the intersection of two basis elements \(B_1\) and \(B_2\), then there is a basis element \(B_3\) containing \(x\) such that \(B_3 \subset B_1 \cap B_2\).</p>
+
+<h4 id="toc_1.2.1">Lemma 13.1</h4>
+
+<p>Let \(X\) be a set; let \(\mathcal{B}\) be a basis for topology \(\mathcal{T}\) on \(X\). Then \(\mathcal{T}\) equals the set of all unions of elements of \(\mathcal{B}\).</p>
+
+<h4 id="toc_1.2.2">Lemma 13.2</h4>
+
+<p>Let \(X\) be a topological space. Suppose that \(\mathcal{C}\) is a collection of open sets of \(X\) such that for each open set \(U\) of \(X\) and each \(x\) in \(U\), there is an element \(C\) of \(\mathcal{C}\) such that \(x \in C\subset U\). Then \(\mathcal{C}\) is a basis for the topology of \(X\).</p>
+
+<h4 id="toc_1.2.3">Lemma 13.3</h4>
+
+<p>Let \(\mathcal{B}\) and \(\mathcal{B&#39;}\) be bases for the topologies \(\mathcal{T}\) and \(\mathcal{T&#39;}\), respectively, on \(X\). Then the following are equivalent </p>
+
+<p>(1) \(\mathcal{T&#39;}\) is finer than \(\mathcal{T}\)</p>
+
+<p>(2) For each \(x \in X\) and each basis element \(B \in \mathcal{B}\) containing
+\(x\), there is a basis element \(B&#39;\in\mathcal{B&#39;}\) such that \(x\in B&#39;\subset B\).</p>
+
+<h5 id="toc_1.2.3.4">Definition</h5>
+
+<p>If \(\mathcal{B}\) the collection of all open intervals in the real line, \[(a,b) = \{x | a&lt;x&lt;b \}\] the topology generated by \(\mathcal{B}\) is called the <em>standard topology</em> on the real line. Whenever we consider \(\mathbb{R}\), we shall suppose it is given this topology unless we specifically state otherwise. If \(\mathcal{B}&#39;\) is the collection of all half-open intervals of the form \[ [a,b) = \{x | a\le x&lt;b \} \], the topology generated by \(\mathcal{B}&#39;\) is called the <strong>lower limit topology</strong> on \(\mathbb{R}\) denoted \(\mathbb{R}_\mathcal{l}\). Let \(K\) denote all numbers of the form \(1/n\), for \(n\in\mathbb{Z}_+\), and let \(\mathcal{B}&#39;&#39;\) be the collection of all open intervals \((a,b)\), along with all sets of the form \((a,b)-K\). The topology generated by \(\mathcal{B}&#39;&#39;\) will be called the <strong>K-topology</strong> on \(\mathbb{R}\) denoted by \(\mathbb{R}_K\). </p>
+</div>
+</div>
+<script>renderMathInElement(document.body);</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>
