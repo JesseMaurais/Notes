@@ -68,8 +68,47 @@ If $\mathbb{B}$ is a basis for the topology of $X$ and $\mathcal{C}$ is a basis 
 #### Definition
 Let $\pi_x:X \times Y \to X$ be defined by the equation $\pi_x(x, y)=x$ and $\pi_y:X \times Y \to Y$ by $\pi_y(x,y)=y$. The maps $\pi_x$ and $\pi_y$ are called the **projections** of $X \times Y$ onto $X$ and $Y$ respectively.
 
+### Theorem 15.2
+The collection $\mathcal{S}=\{\pi^{-1}_x(U)|U \in \mathcal{T}_X \} \cup \{\pi^{-1}_y(V)|V \in \mathcal{T}_Y \}$ is a subbasis of the product topology on $X \times Y$.
 
+## The Subspace Topology
+Let $X$ be a topological space with topology $\mathcal{T}_X$. If $Y$ is a subset of $X$, the collection $\mathcal{T}_Y=\{Y \cap U|U \in \mathcal{T}_X \}$ is a topology on $Y$, called the **subspace topology**. With this topology, $Y$ is called a **subspace** of $X$; its open sets consist of all intersections of open sets of $X$ with $Y$.
 
+### Lemma 16.1
+If $\mathcal{B}_X$ is a basis for the topology of $X$ then the collection $\mathcal{B}_Y=\{ B \cap Y|B \in \mathcal{B}_X \}$ is a basis for the subspace topology on $Y$.
+
+### Lemma 16.2
+Let $Y$ be a subspace of $X$. If $U$ is open in $Y$ and $Y$ is open in $X$, then $U$ is open in $X$.
+
+### Theorem 16.3
+If $X$ is a subspace of $X$ and $B$ is a subspace of $Y$ , then the product topology on $A \times B$ is the same as the topology $A \times B$ inherits as a subspace of $X \times Y$.
+
+### Theorem 16.4
+Let $X$ be an ordered set in the order topology; let $Y$ be a subset of $X$ that is convex in $X$. Then the order topology on $Y$ is the same as the topology $Y$ inherits as a subspace of $X$.
+
+## Closed Sets and Limit Points
+A subset $A$ of a topological space $X$ is said to be **closed** if the set $X - A$ is open.
+
+### Theorem 17.1
+Let $X$ be a topological space. Then the following conditions hold.
+
+(1) $\varnothing$ and $X$ are closed.
+
+(2) Arbitrary intersections of closed sets are closed.
+
+(3) Finite unions of closed sets are closed.
+
+### Theorem 17.2
+Let $Y$ be a subspace of $X$. Then a set $X$ is closed in $Y$ if and only if it equals the intersection of a closed set of $X$. with $Y$.
+
+### Theorem 17.3
+Let $Y$ be a subspace of $X$. If $A$ is closed in $Y$ and $Y$ is closed in $X$, then $X$ is closed in $X$. 
+
+#### Close and Interior of a Set
+Given a subset $A$ of a topological set $X$, the **interior** of $A$ is defined at the union of all open sets contained in $A$, and the **closure** of $A$ is defined as the intersection of all closed sets containing in $A$.
+
+### Theorem 17.4
+Let $Y$ be a subspace of $X$; let $A$ be a subset of $Y$; let $\bar A$ denote the closure of $A$ in $X$. Then the closure of $A$ in $Y$ equals $\bar A \cap Y$. 
 
 
 
